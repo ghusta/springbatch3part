@@ -1,5 +1,6 @@
 package com.batch.todb;
 
-public interface LedgerDAO {
-	public void save(final Ledger note);
+public interface LedgerDAO
+{
+    void save(final Ledger note);
 }
