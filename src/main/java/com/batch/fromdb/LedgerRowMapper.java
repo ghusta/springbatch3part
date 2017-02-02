@@ -9,8 +9,9 @@ import org.springframework.stereotype.Component;
 import com.batch.todb.Ledger;
 
 @Component("ledgerRowMapper")
-public class LedgerRowMapper implements RowMapper {
-	public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
+public class LedgerRowMapper implements RowMapper<Ledger> {
+
+	public Ledger mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Ledger ledger = new Ledger();
 		ledger.setId(rs.getInt("id"));
 		ledger.setReceiptDate(rs.getDate("rcv_dt"));

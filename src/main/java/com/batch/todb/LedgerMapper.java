@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Component("ledgerMapper")
-public class LedgerMapper implements FieldSetMapper {
+public class LedgerMapper implements FieldSetMapper<Ledger> {
 	private final static String DATE_PATTERN = "mm/DD/yy";
 	private final static String DOLLAR_PATTERN = "$###,###.###";
 
-	public Object mapFieldSet(FieldSet fs) {
+	public Ledger mapFieldSet(FieldSet fs) {
 		Ledger item = new Ledger();
 		int idx = 0;
 		item.setReceiptDate(fs.readDate(idx++, DATE_PATTERN));

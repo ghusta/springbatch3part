@@ -8,14 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("itemWriter")
-public class LedgerWriter implements ItemWriter {
+public class LedgerWriter implements ItemWriter<Ledger> {
 
 	@Autowired
 	private LedgerDAO itemDAO;
 
-	public void write(List items) throws Exception {
-		for (Iterator<Ledger> iterator = items.iterator(); iterator.hasNext();) {
-			Ledger item = iterator.next();
+	public void write(List<? extends Ledger> items) throws Exception {
+		for (Ledger item : items) {
 			itemDAO.save(item);
 		}
 	}
